@@ -1,0 +1,28 @@
+.optimize-rule-row {
+	min-height: 20px;
+	font-size: 12px;
+}
+.panel-body .optimize-rule-element {
+	width: 10%;
+	display: inline-block;
+	float: left;
+	margin-left: 10px;
+	height: 28px;
+	font-size: 12px;
+}
+
+.optimize-rule-element.optimize-rule-selector {
+	width: 50%;
+}
+
+.optimize-rule-element.optimize-rule-label {
+	width: 20%;
+}
+
+.optimize-rule-element.optimize-rule-value {
+	width: 30%;
+}
+
+.optimize-rule-element.optimize-rule-connector {
+	width: 15%;
+}
