@@ -1,6 +1,11 @@
+.panel-body {
+	font-size: 12px;
+}
+.panel-body .btn {
+	font-size: 12px;
+}
 .optimize-rule-row {
 	min-height: 20px;
-	font-size: 12px;
 }
 .panel-body .optimize-rule-element {
 	width: 10%;
@@ -25,4 +30,7 @@
 
 .optimize-rule-element.optimize-rule-connector {
 	width: 15%;
+}
+.form-btns {
+	text-align: center;
 }
