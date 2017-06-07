@@ -34,3 +34,10 @@
 .form-btns {
 	text-align: center;
 }
+body .close-btn {
+	float: left;
+	margin-left: 15px;
+}
+.swal2-container button {
+	margin: 0 5px;
+}
