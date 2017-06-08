@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ON/OFF Execution</title>
+    <title>広告ONOFF実行画面</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Pyxis 4 Line</a>
+                <a class="navbar-brand" href="index.html">Pyxis 4 LINE</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -53,10 +53,10 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="settingrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFON Setting</a>
+                            <a href="settingrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFONロジック設定</a>
                         </li>
                         <li>
-                            <a href="applyrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFON Execution</a>
+                            <a href="applyrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFONロジック実行</a>
                         </li>
                     </ul>
                 </div>
@@ -68,14 +68,14 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4 class="page-header">OFFON Execution</h4>
+                    <h4 class="page-header">OFFON実行</h4>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
 
             <div class="alert alert-success" id="success-alert">
                 <button type="button" class="close" data-dismiss="alert">x</button>
-                OFF rule has been executed successfully.
+                OFFONロジックが正常に実行された。
             </div>
 
             <!-- /.row -->
@@ -99,12 +99,12 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group optimize-rule-row">
-                                        <span class="optimize-rule-element optimize-rule-label">Time range</span>
-                                        <span>Yesterday</span>
+                                        <span class="optimize-rule-element optimize-rule-label">参照期間</span>
+                                        <span><strong>昨日</strong></span>
                                     </div>
                                     <div class="form-group optimize-rule-row">
-                                        <span class="optimize-rule-element optimize-rule-label">OFF rule</span>
-                                        <span>imp>=100 AND cost>=1000 OR cpa>=100 AND cpc>=200</span>
+                                        <span class="optimize-rule-element optimize-rule-label">OFFロジック</span>
+                                        <span><strong>imp>=100 AND cost>=1000 OR cpa>=100 AND cpc>=200</strong></span>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
 
             <div class="row" style="float:right; padding-right:15px; padding-bottom: 15px;">
                 <i class="fa fa-spinner fa-pulse fa-3x fa-fw" id="loadingImg" style="display: none;"></i>
-                <button class="btn btn-primary" id="executeBtn">Execute</button>
+                <button class="btn btn-primary" id="executeBtn">実行</button>
             </div>
             
 
@@ -129,7 +129,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Target auto-OFF Ads
+                            OFF対象広告一覧表
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -139,7 +139,7 @@
                                         <tr>
                                             <th>AdGroup ID</th>
                                             <th>Ad ID</th>
-                                            <th>Time range</th>
+                                            <th>参照期間</th>
                                             <th>imp</th>
                                             <th>cost</th>
                                             <th>cpa</th>
@@ -150,7 +150,7 @@
                                         <tr>
                                             <td>1</td>
                                             <td>1</td>
-                                            <td>Yesterday</td>
+                                            <td>昨日</td>
                                             <td>100</td>
                                             <td>10</td>
                                             <td>10</td>
@@ -159,7 +159,7 @@
                                         <tr>
                                             <td>1</td>
                                             <td>2</td>                                            
-                                            <td>Yesterday</td>
+                                            <td>昨日</td>
                                             <td>100</td>
                                             <td>10</td>
                                             <td>10</td>
@@ -168,7 +168,7 @@
                                         <tr>
                                             <td>3</td>
                                             <td>3</td>
-                                            <td>Yesterday</td>
+                                            <td>昨日</td>
                                             <td>100</td>
                                             <td>10</td>
                                             <td>10</td>
