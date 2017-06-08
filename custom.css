@@ -11,13 +11,13 @@
 	width: 10%;
 	display: inline-block;
 	float: left;
-	margin-left: 10px;
+	margin-left: 2%;
 	height: 28px;
 	font-size: 12px;
 }
 
 .optimize-rule-element.optimize-rule-selector {
-	width: 50%;
+	width: 48%;
 }
 
 .optimize-rule-element.optimize-rule-label {
@@ -32,11 +32,12 @@
 	width: 15%;
 }
 .form-btns {
-	text-align: center;
+	text-align: right;
+	margin-right: 27%;
 }
-body .close-btn {
+.panel-body button.close-btn {
 	float: left;
-	margin-left: 15px;
+	font-size: 14px;
 }
 .swal2-container button {
 	margin: 0 5px;
