@@ -9,7 +9,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>広告ONOFF実行画面</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -53,10 +52,10 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="settingrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFONロジック設定</a>
+                            <a href="settingrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFロジック設定</a>
                         </li>
                         <li>
-                            <a href="applyrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFONロジック実行</a>
+                            <a href="applyrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFロジック実行</a>
                         </li>
                     </ul>
                 </div>
@@ -68,7 +67,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4 class="page-header">OFFON実行</h4>
+                    <h4 class="page-header">OFF実行</h4>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -86,25 +85,17 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group optimize-rule-row">
-                                        <span class="optimize-rule-element optimize-rule-label">Account ID</span>
+                                        <span class="optimize-rule-element optimize-rule-label">Account</span>
                                         <select class="form-control optimize-rule-element optimize-rule-selector">
-                                                <option>1255</option>
-                                                <option>1280</option>
-                                                <option>3488</option>
-                                                <option>3962</option>
-                                                <option>4450</option>
+                                                <option>[3903]スタッフサービス(Alicamo)_ライフスタイル_SU0129_AC_A_LAP</option>
+                                                <option>[3962]株式会社セプテーニ_APIテストアカウント2017-06-15</option>
                                         </select>
                                     </div>
-                                    
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group optimize-rule-row">
-                                        <span class="optimize-rule-element optimize-rule-label">参照期間</span>
-                                        <span><strong>昨日</strong></span>
-                                    </div>
-                                    <div class="form-group optimize-rule-row">
-                                        <span class="optimize-rule-element optimize-rule-label">OFFロジック</span>
-                                        <span><strong>imp>=100 AND cost>=1000 OR cpa>=100 AND cpc>=200</strong></span>
+                                        <span class="optimize-rule-element optimize-rule-label">Target Campaigns</span>
+                                        <span><strong>21210, 21211</strong></span>
                                     </div>
                                 </div>
                             </div>
@@ -133,46 +124,89 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
+                            <div class="row" style="margin-bottom: 15px">
+                                <div class="col-sm-4">Account ID: <strong>3903</strong></div>
+                                <div class="col-sm-8">Account name: <strong>スタッフサービス(Alicamo)_ライフスタイル_SU0129_AC_A_LAP</strong></div>
+                            </div>
                             <div class="table-responsive" >
                                 <table class="table table-striped table-bordered table-hover" id="targetTable">
                                     <thead>
                                         <tr>
+                                            <th>Campaign ID</th>
                                             <th>AdGroup ID</th>
+                                            <th>AdGroup name</th>
                                             <th>Ad ID</th>
-                                            <th>参照期間</th>
-                                            <th>imp</th>
+                                            <th>click</th>
+                                            <th>impression</th>
                                             <th>cost</th>
-                                            <th>cpa</th>
+                                            <th>ctr</th>
                                             <th>cpc</th>
+                                            <th>cv</th>
+                                            <th>cpa</th>
+                                            <th>参照期間</th>
+                                            <th>OFFロジック</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>1</td>
-                                            <td>1</td>
-                                            <td>昨日</td>
+                                            <td>21210</td>
+                                            <td>55249</td>
+                                            <td>iOS_N_Ba_</td>
+                                            <td>987805</td>
+                                            <td>11</td>
                                             <td>100</td>
+                                            <td>1200</td>
+                                            <td>0.34</td>
+                                            <td>2</td>
                                             <td>10</td>
                                             <td>10</td>
-                                            <td>10</td>
+                                            <td>昨日 (2017/06/14)</td>
+                                            <td>imp>=100 AND cost>=1000</td>
                                         </tr>
                                         <tr>
-                                            <td>1</td>
-                                            <td>2</td>                                            
-                                            <td>昨日</td>
-                                            <td>100</td>
+                                            <td>21210</td>
+                                            <td>55251</td>
+                                            <td>iOS_F_Ba_</td>
+                                            <td>987808</td>
+                                            <td>13</td>
+                                            <td>120</td>
+                                            <td>1100</td>
+                                            <td>0.12</td>
                                             <td>10</td>
                                             <td>10</td>
                                             <td>10</td>
+                                            <td>昨日 (2017/06/14)</td>
+                                            <td>imp>=100 AND cost>=1000</td>
                                         </tr>
                                         <tr>
-                                            <td>3</td>
-                                            <td>3</td>
-                                            <td>昨日</td>
+                                            <td>21210</td>
+                                            <td>55251</td>
+                                            <td>iOS_F_Ba_</td>
+                                            <td>987816</td>
+                                            <td>6</td>
+                                            <td>100</td>
+                                            <td>1010</td>
+                                            <td>0.11</td>
+                                            <td>16</td>
+                                            <td>10</td>
+                                            <td>10</td>
+                                            <td>昨日 (2017/06/14)</td>
+                                            <td>imp>=100 AND cost>=1000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>21211</td>
+                                            <td>55252</td>
+                                            <td>iOS_F2_Ba_</td>
+                                            <td>987811</td>
                                             <td>100</td>
                                             <td>10</td>
                                             <td>10</td>
-                                            <td>10</td>
+                                            <td>0.04</td>
+                                            <td>200</td>
+                                            <td>1</td>
+                                            <td>100</td>
+                                            <td>過去3日間 (2017/06/12 - 2017/06/14)</td>
+                                            <td>cpa>=100 AND cpc>=200</td>
                                         </tr>
                                     </tbody>
                                 </table>
