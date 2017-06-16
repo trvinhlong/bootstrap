@@ -189,15 +189,15 @@
                             <div class="table-responsive">
                                 <div class="row" style="margin-bottom: 15px">
                                     <div class="col-sm-4">Account ID: <strong>3903</strong></div>
-                                    <div class="col-sm-8">Account name: <strong>スタッフサービス(Alicamo)_ライフスタイル_SU0129_AC_A_LAP</strong></div>
+                                    <div class="col-sm-8">Account名: <strong>スタッフサービス(Alicamo)_ライフスタイル_SU0129_AC_A_LAP</strong></div>
                                 </div>
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>Campaign ID</th>
-                                            <th>Campaign name</th>
+                                            <th>Campaign名</th>
                                             <th>OFFロジック</th>
-                                            <th>ONロジック</th>
+                                            <!--<th>ONロジック</th>-->
                                             <th>参照期間</th>
                                             <th>アクション</th>
                                         </tr>
@@ -207,7 +207,7 @@
                                             <td>21210</td>
                                             <td>【AT】iOS_Ba_NMF</td>
                                             <td>cost >= 0 AND click <= 20 AND cpc >= 5</td>
-                                            <td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>
+                                            <!--<td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>-->
                                             <td>昨日</td>
                                             <td><button class="btn btn-default"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete"><i class="fa fa-trash-o"></i></button></td>
                                         </tr>
@@ -215,7 +215,7 @@
                                             <td>21211</td>
                                             <td>【AT】iOS_Ba_AGE</td>
                                             <td>cost >= 0 AND cpc >= 7 OR cpm >= 6</td>
-                                            <td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>
+                                            <!--<td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>-->
                                             <td>過去7日間</td>
                                             <td><button class="btn btn-default"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete"><i class="fa fa-trash-o"></i></button></td>
                                         </tr>
@@ -228,17 +228,17 @@
                         <div class="panel-body" id="rule-list-2" style="display: none">
                             <div class="row" style="margin-bottom: 15px">
                                 <div class="col-sm-4">Account ID: <strong>3962</strong></div>
-                                <div class="col-sm-8">Account name: <strong>株式会社セプテーニ_APIテストアカウント2017-06-15</strong></div>
+                                <div class="col-sm-8">Account名: <strong>株式会社セプテーニ_APIテストアカウント2017-06-15</strong></div>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
                                         <th>Campaign ID</th>
-                                        <th>Campaign name</th>
+                                        <th>Campaign名</th>
                                         <th>OFFロジック</th>
                                         <th>ONロジック</th>
-                                        <th>参照期間</th>
+                                        <!--<th>参照期間</th>-->
                                         <th>アクション</th>
                                     </tr>
                                     </thead>
@@ -247,7 +247,7 @@
                                         <td>22773</td>
                                         <td>森永気まーテスト</td>
                                         <td>cost >= 0 AND click <= 20 AND cpc >= 5</td>
-                                        <td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>
+                                        <!--<td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>-->
                                         <td>昨日</td>
                                         <td><button class="btn btn-default"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete"><i class="fa fa-trash-o"></i></button></td>
                                     </tr>
@@ -255,7 +255,7 @@
                                         <td>22774</td>
                                         <td>改革工定評 Apr 2017</td>
                                         <td>cost >= 0 AND cpc >= 7 OR cpm >= 6</td>
-                                        <td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>
+                                        <!--<td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>-->
                                         <td>過去7日間</td>
                                         <td><button class="btn btn-default"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete"><i class="fa fa-trash-o"></i></button></td>
                                     </tr>
@@ -389,7 +389,7 @@
     <script type="text/javascript">
         $('.btn-delete').click(function () {
             swal({
-              text: "本OFFロジック（付随ONロジックと共に）削除されるが宜しいですか?",
+              text: "本OFFロジック削除されるが宜しいですか?",
               type: 'warning',
               showCancelButton: true,
               confirmButtonColor: '#3085d6',
@@ -401,7 +401,7 @@
               buttonsStyling: false
             }).then(function () {
               swal({
-                text: 'OFFロジック（付随ONロジックと共に）削除済み',
+                text: 'OFFロジック削除済み',
                 timer: 3000,
                 type: 'success',
                 showConfirmButton: false
