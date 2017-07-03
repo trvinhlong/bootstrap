@@ -8,7 +8,7 @@
 	min-height: 20px;
 }
 .panel-body .optimize-rule-element {
-	width: 15%;
+	width: 20%;
 	display: inline-block;
 	float: left;
 	margin-left: 2%;
@@ -17,19 +17,20 @@
 }
 
 .optimize-rule-element.optimize-rule-selector {
-	width: 50%;
+	width: 55%;
 }
 
 .optimize-rule-element.optimize-rule-label {
-	width: 25%;
+	width: 20%;
 }
 
 .optimize-rule-element.optimize-rule-value {
 	width: 20%;
 }
 
-.optimize-rule-element.optimize-rule-connector {
-	width: 20%;
+.optimize-rule-connector {
+	font-size: 12px;
+	height: 28px;
 }
 .optimize-rule-row button {
 	width: 10%;
@@ -41,6 +42,7 @@
 
 .form-btns button {
 	width: 20%;
+	margin-right: 10px;
 }
 .panel-body button.close-btn, .panel-body button.add-btn {
 	float: left;
@@ -48,4 +50,44 @@
 }
 .swal2-container button {
 	margin: 0 5px;
+}
+
+.hide{
+	visibility: hidden
+}
+
+.wrap {
+	width: 100%;
+}
+
+.wrap table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+table tr td {
+	padding: 5px;
+	border: 1px solid #84A9B5;
+	word-wrap: break-word;
+}
+.head tr td, th {
+	background-color: #84A9B5;
+	font-weight: bold;
+}
+.inner-table {
+	height: 180px;
+	overflow-y: auto;
+}
+.small-cell {
+	width: 10%;
+}
+.large-cell {
+	width: 30%;
+}
+
+#targetTable td, #targetTable th {
+	min-width: 65px;
+}
+.hide-msg{
+	display: none;
 }

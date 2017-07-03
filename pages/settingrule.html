@@ -54,10 +54,10 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="settingrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFロジック設定</a>
+                            <a href="settingrule.html">OFFロジック設定</a>
                         </li>
                         <li>
-                            <a href="applyrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFロジック実行</a>
+                            <a href="applyrule.html">OFFロジック実行</a>
                         </li>
                     </ul>
                 </div>
@@ -67,11 +67,16 @@
         </nav>
 
         <div id="page-wrapper">
+
             <div class="row">
                 <div class="col-lg-12">
                     <h4 class="page-header">自動OFFロジック設定画面</h4>
                 </div>
+
                 <!-- /.col-lg-12 -->
+            </div>
+            <div class="alert alert-success hide-msg" id="success-alert">
+                正常にOFFロジックが保存された。
             </div>
             <!-- /.row -->
             <div class="row">
@@ -90,23 +95,26 @@
                                         </div>
                                         <div id="campaign-list-1" class="form-group optimize-rule-row">
                                             <span class="optimize-rule-element optimize-rule-label">Campaign</span>
-                                            <select class="form-control optimize-rule-element optimize-rule-selector">
+                                            <select class="form-control optimize-rule-element optimize-rule-selector" id="campaign-selector-1">
                                                 <option>[21210]【AT】iOS_Ba_NMF</option>
                                                 <option>[21211]【AT】iOS_Ba_AGE</option>
                                             </select>
                                         </div>
                                         <div id="campaign-list-2" class="form-group optimize-rule-row" style="display: none">
                                             <span class="optimize-rule-element optimize-rule-label">Campaign</span>
-                                            <select class="form-control optimize-rule-element optimize-rule-selector">
+                                            <select class="form-control optimize-rule-element optimize-rule-selector" id="campaign-selector-2">
                                                 <option>[22773]森永気まーテスト</option>
                                                 <option>[22774]改革工定評 Apr 2017</option>
                                             </select>
                                         </div>
-                                        <div class="form-group optimize-rule-row">
+                                        <!--<div class="form-group optimize-rule-row">
                                             <span class="optimize-rule-element optimize-rule-label">ONロジック</span>
                                             <button class="btn btn-info optimize-rule-element optimize-rule-selector" data-toggle="modal" data-target="#onRulesInputModal" disabled>設定</button>
+                                        </div>-->
+                                        <div class="form-group optimize-rule-row">
+                                            <span class="optimize-rule-element optimize-rule-label">Minimum active ad</span>
+                                            <input type="text" class="form-control optimize-rule-element" />
                                         </div>
-                                        <div class="form-group optimize-rule-row"></div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group optimize-rule-row">
@@ -154,15 +162,12 @@
                                             </select>
                                             <input class="form-control optimize-rule-element optimize-rule-value">
                                             <button type="button" class="close close-btn optimize-rule-element">×</button>
+                                        </div>
+                                        <div class="form-group optimize-rule-row">
                                             <button class="btn btn-info add-btn optimize-rule-element">+</button>
                                         </div>
                                         <div class="form-group optimize-rule-row form-btns">
-                                            <button class="btn btn-primary" onclick="swal({
-                                                text: '正常にOFFロジックが保存された。',
-                                                timer: 3000,
-                                                type: 'success',
-                                                showConfirmButton: false
-                                            });">保存</button>
+                                            <button class="btn btn-primary" onclick="showUpdateResult();">保存</button>
                                             <button class="btn">リセット</button>
                                         </div>
                                     </div>
@@ -196,8 +201,8 @@
                                         <tr>
                                             <th>Campaign ID</th>
                                             <th>Campaign名</th>
+                                            <th>Minimum active ad</th>
                                             <th>OFFロジック</th>
-                                            <!--<th>ONロジック</th>-->
                                             <th>参照期間</th>
                                             <th>アクション</th>
                                         </tr>
@@ -206,18 +211,18 @@
                                         <tr>
                                             <td>21210</td>
                                             <td>【AT】iOS_Ba_NMF</td>
+                                            <td>6</td>
                                             <td>cost >= 0 AND click <= 20 AND cpc >= 5</td>
-                                            <!--<td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>-->
                                             <td>昨日</td>
-                                            <td><button class="btn btn-default"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete"><i class="fa fa-trash-o"></i></button></td>
+                                            <td><button class="btn btn-default btn-edit"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete" data-toggle="modal" data-target="#confirm-delete-modal"><i class="fa fa-trash-o"></i></button></td>
                                         </tr>
                                         <tr>
                                             <td>21211</td>
                                             <td>【AT】iOS_Ba_AGE</td>
+                                            <td>7</td>
                                             <td>cost >= 0 AND cpc >= 7 OR cpm >= 6</td>
-                                            <!--<td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>-->
                                             <td>過去7日間</td>
-                                            <td><button class="btn btn-default"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete"><i class="fa fa-trash-o"></i></button></td>
+                                            <td><button class="btn btn-default btn-edit"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete" data-toggle="modal" data-target="#confirm-delete-modal"><i class="fa fa-trash-o"></i></button></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -236,9 +241,9 @@
                                     <tr>
                                         <th>Campaign ID</th>
                                         <th>Campaign名</th>
+                                        <th>Minimum active ad</th>
                                         <th>OFFロジック</th>
-                                        <th>ONロジック</th>
-                                        <!--<th>参照期間</th>-->
+                                        <th>参照期間</th>
                                         <th>アクション</th>
                                     </tr>
                                     </thead>
@@ -246,23 +251,36 @@
                                     <tr>
                                         <td>22773</td>
                                         <td>森永気まーテスト</td>
+                                        <td>8</td>
                                         <td>cost >= 0 AND click <= 20 AND cpc >= 5</td>
-                                        <!--<td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>-->
                                         <td>昨日</td>
-                                        <td><button class="btn btn-default"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete"><i class="fa fa-trash-o"></i></button></td>
+                                        <td><button class="btn btn-default btn-edit"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete" data-toggle="modal" data-target="#confirm-delete-modal"><i class="fa fa-trash-o"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td>22774</td>
                                         <td>改革工定評 Apr 2017</td>
+                                        <td>9</td>
                                         <td>cost >= 0 AND cpc >= 7 OR cpm >= 6</td>
-                                        <!--<td><button class="btn btn-default" data-toggle="modal" data-target="#onRulesDetailModal">参照</button></td>-->
                                         <td>過去7日間</td>
-                                        <td><button class="btn btn-default"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete"><i class="fa fa-trash-o"></i></button></td>
+                                        <td><button class="btn btn-default btn-edit"><i class="fa fa-edit"></i></button> &nbsp; <button class="btn btn-default btn-delete" data-toggle="modal" data-target="#confirm-delete-modal"><i class="fa fa-trash-o"></i></button></td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <!-- /.table-responsive -->
+                        </div>
+                        <div class="modal fade" id="confirm-delete-modal" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        本OFFロジック削除されるが宜しいですか?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary" data-dismiss="modal">はい</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -271,101 +289,6 @@
                 <!-- /.col-lg-6 -->
             </div>
             <!-- /.row (nested) -->
-            
-
-            <!-- Modal -->
-            <div class="modal fade" id="onRulesInputModal" tabindex="-1" role="dialog" aria-hidden="true">
-              <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">ONロジック</h5>
-                  </div>
-                  <div class="modal-body">
-                      <div class="row" style="margin-bottom: 15px">
-                          <div class="col-sm-4">Account ID: <strong>3903</strong></div>
-                          <div class="col-sm-8">Account name: <strong>スタッフサービス(Alicamo)_ライフスタイル_SU0129_AC_A_LAP</strong></div>
-                      </div>
-                      <div class="row" style="margin-bottom: 15px">
-                          <div class="col-sm-4">Campaign ID: <strong>21210</strong></div>
-                          <div class="col-sm-8">Campaign name: <strong>【AT】iOS_Ba_NMF</strong></div>
-                      </div>
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th style="width: 20%">AdGroup ID</th>
-                                <th style="width: 50%">AdGroup名</th>
-                                <th style="width: 20%">最低入稿本数</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>55249</td>
-                                <td>iOS_N_Ba_</td>
-                                <td><input class="form-control" maxlength="2" /></td>
-                            </tr>
-                            <tr>
-                                <td>55251</td>
-                                <td>iOS_F_Ba_</td>
-                                <td><input class="form-control" maxlength="2" /></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                  </div>
-                  <div class="modal-footer">
-                    
-                    <button class="btn btn-primary" data-dismiss="modal">保存</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal fade" id="onRulesDetailModal" tabindex="-1" role="dialog" aria-hidden="true">
-              <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">ONロジック</h5>
-                  </div>
-                  <div class="modal-body">
-                      <div class="row" style="margin-bottom: 15px">
-                          <div class="col-sm-4">Account ID: <strong>3903</strong></div>
-                          <div class="col-sm-8">Account name: <strong>スタッフサービス(Alicamo)_ライフスタイル_SU0129_AC_A_LAP</strong></div>
-                      </div>
-                      <div class="row" style="margin-bottom: 15px">
-                          <div class="col-sm-4">Campaign ID: <strong>21210</strong></div>
-                          <div class="col-sm-8">Campaign name: <strong>【AT】iOS_Ba_NMF</strong></div>
-                      </div>
-
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <tr>
-                                <th style="width: 20%">AdGroup ID</th>
-                                <th style="width: 50%">AdGroup名</th>
-                                <th style="width: 20%">最低入稿本数</th>
-                            </tr>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>55249</td>
-                                <td>iOS_N_Ba_</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>55251</td>
-                                <td>iOS_F_Ba_</td>
-                                <td>6</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                  </div>
-                </div>
-              </div>
-            </div>
         </div>
         <!-- /#page-wrapper -->
 
@@ -387,33 +310,16 @@
     <script src="../dist/js/sweetalert2.min.js"></script>
 
     <script type="text/javascript">
+        function showUpdateResult() {
+            $('#success-alert').show();
+        }
+
         $('.btn-delete').click(function () {
-            swal({
-              text: "本OFFロジック削除されるが宜しいですか?",
-              type: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'はい',
-              cancelButtonText: 'いいえ',
-              confirmButtonClass: 'btn btn-success',
-              cancelButtonClass: 'btn btn-danger',
-              buttonsStyling: false
-            }).then(function () {
-              swal({
-                text: 'OFFロジック削除済み',
-                timer: 3000,
-                type: 'success',
-                showConfirmButton: false
-              })
-            }, function (dismiss) {
-              
-            });
+
         });
         $('#account-id').change(function () {
             if (this.value == '1') {
                 $('#campaign-list-1').show();
-                console.log('123');
                 $('#campaign-list-2').hide();
                 $('#rule-list-1').show();
                 $('#rule-list-2').hide();
@@ -425,6 +331,12 @@
             }
 
         });
+        $('.btn-edit').click(function () {
+            $('#account-id').prop('disabled', true);
+            $('#campaign-selector-1').prop('disabled', true);
+            $('#campaign-selector-2').prop('disabled', true);
+        })
+
     </script>
 
 </body>
