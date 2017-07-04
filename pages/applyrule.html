@@ -52,10 +52,10 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="settingrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFロジック設定</a>
+                            <a href="settingrule.html">OFFロジック設定</a>
                         </li>
                         <li>
-                            <a href="applyrule.html"><i class="fa fa-wrench fa-fw"></i></i>OFFロジック実行</a>
+                            <a href="applyrule.html">OFFロジック実行</a>
                         </li>
                     </ul>
                 </div>
@@ -73,8 +73,7 @@
             </div>
 
             <div class="alert alert-success" id="success-alert">
-                <button type="button" class="close" data-dismiss="alert">x</button>
-                OFFONロジックが正常に実行された。
+                OFFロジックが正常に実行された。
             </div>
 
             <!-- /.row -->
@@ -86,10 +85,11 @@
                                 <div class="col-sm-6">
                                     <div class="form-group optimize-rule-row">
                                         <span class="optimize-rule-element optimize-rule-label">Account</span>
-                                        <select class="form-control optimize-rule-element optimize-rule-selector">
+                                        <select class="form-control optimize-rule-element optimize-rule-selector" id="campaign-selector">
                                                 <option>[3903]スタッフサービス(Alicamo)_ライフスタイル_SU0129_AC_A_LAP</option>
                                                 <option>[3962]株式会社セプテーニ_APIテストアカウント2017-06-15</option>
                                         </select>
+                                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw" id="campaignLoadingImg" style="display: none;"></i>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -109,9 +109,9 @@
             </div>
             <!-- /.row -->
 
-            <div class="row" style="float:right; padding-right:15px; padding-bottom: 15px;">
+            <div class="row">
                 <i class="fa fa-spinner fa-pulse fa-3x fa-fw" id="loadingImg" style="display: none;"></i>
-                <button class="btn btn-primary" id="executeBtn">実行</button>
+                <button class="btn btn-primary" id="executeBtn" style="float: right; margin-bottom: 10px; margin-right: 20px;">実行</button>
             </div>
             
 
@@ -134,8 +134,9 @@
                                         <tr>
                                             <th>Campaign ID</th>
                                             <th>AdGroup ID</th>
-                                            <th>AdGroup名</th>
+                                            <th>AdGroup情報</th>
                                             <th>Ad ID</th>
+                                            <th>Ad Status</th>
                                             <th>click</th>
                                             <th>impression</th>
                                             <th>cost</th>
@@ -148,11 +149,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <tr class="executable-ads">
                                             <td>21210</td>
                                             <td>55249</td>
-                                            <td>iOS_N_Ba_</td>
+                                            <td>iOS_N_Ba_ (7/5)</td>
                                             <td>987805</td>
+                                            <td>有効</td>
                                             <td>11</td>
                                             <td>100</td>
                                             <td>1200</td>
@@ -166,8 +168,9 @@
                                         <tr>
                                             <td>21210</td>
                                             <td>55251</td>
-                                            <td>iOS_F_Ba_</td>
+                                            <td>iOS_F_Ba_ (7/6)</td>
                                             <td>987808</td>
+                                            <td>時停止</td>
                                             <td>13</td>
                                             <td>120</td>
                                             <td>1100</td>
@@ -178,11 +181,12 @@
                                             <td>昨日 (2017/06/14)</td>
                                             <td>imp>=100 AND cost>=1000</td>
                                         </tr>
-                                        <tr>
+                                        <tr class="executable-ads">
                                             <td>21210</td>
                                             <td>55251</td>
-                                            <td>iOS_F_Ba_</td>
+                                            <td>iOS_F_Ba_ (7/6)</td>
                                             <td>987816</td>
+                                            <td>有効</td>
                                             <td>6</td>
                                             <td>100</td>
                                             <td>1010</td>
@@ -196,8 +200,25 @@
                                         <tr>
                                             <td>21211</td>
                                             <td>55252</td>
-                                            <td>iOS_F2_Ba_</td>
+                                            <td>iOS_F2_Ba_ (2/3)</td>
                                             <td>987811</td>
+                                            <td>有効</td>
+                                            <td>100</td>
+                                            <td>10</td>
+                                            <td>10</td>
+                                            <td>0.04</td>
+                                            <td>200</td>
+                                            <td>1</td>
+                                            <td>100</td>
+                                            <td>過去3日間 (2017/06/12 - 2017/06/14)</td>
+                                            <td>cpa>=100 AND cpc>=200</td>
+                                        </tr>
+                                        <tr>
+                                            <td>21211</td>
+                                            <td>55252</td>
+                                            <td>iOS_F2_Ba_ (2/3)</td>
+                                            <td>987818</td>
+                                            <td>時停止</td>
                                             <td>100</td>
                                             <td>10</td>
                                             <td>10</td>
@@ -249,10 +270,18 @@
                 setTimeout(function() { 
                     $("#loadingImg").hide();
                     $("#success-alert").alert();
-                    $("#targetTable td").css("background-color", "gray");
                     $("#success-alert").fadeTo(2000, 500);
                 }, 5000); 
                 
+            });
+            $("#campaign-selector").change(function () {
+                this.disabled=true;
+                var self = this;
+                $("#campaignLoadingImg").show();
+                setTimeout(function() {
+                    $("#campaignLoadingImg").hide();
+                    self.disabled = false;
+                }, 5000);
             });
         });   
     </script>

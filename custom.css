@@ -8,7 +8,7 @@
 	min-height: 20px;
 }
 .panel-body .optimize-rule-element {
-	width: 20%;
+	width: 18%;
 	display: inline-block;
 	float: left;
 	margin-left: 2%;
@@ -21,16 +21,15 @@
 }
 
 .optimize-rule-element.optimize-rule-label {
-	width: 20%;
+	width: 25%;
 }
 
 .optimize-rule-element.optimize-rule-value {
 	width: 20%;
 }
 
-.optimize-rule-connector {
-	font-size: 12px;
-	height: 28px;
+.optimize-rule-element.optimize-rule-connector {
+	width: 25%;
 }
 .optimize-rule-row button {
 	width: 10%;
@@ -90,4 +89,7 @@ table tr td {
 }
 .hide-msg{
 	display: none;
+}
+#targetTable tr.executable-ads {
+	color: orangered;
 }
