@@ -93,3 +93,6 @@ table tr td {
 #targetTable tr.executable-ads {
 	color: orangered;
 }
+#targetTable tr.paused-ads {
+	color: #e3e6ea;
+}
